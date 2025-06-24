@@ -1,14 +1,13 @@
 package org.example.cine.controller;
 
 
+import jakarta.validation.Valid;
+import org.example.cine.dto.MovieReceiveDto;
 import org.example.cine.dto.MovieResponseDto;
 import org.example.cine.entity.Movie;
 import org.example.cine.service.MovieService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -32,6 +31,10 @@ public class MovieController {
         return ResponseEntity.ok(movieService.findById(id));
     }
 
+    @GetMapping("/film/add")
+    public ResponseEntity<MovieResponseDto> create(@Valid @RequestBody MovieReceiveDto movieReceiveDto){
+
+    }
 
 
 }

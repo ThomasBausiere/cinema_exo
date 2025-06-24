@@ -11,6 +11,7 @@ import org.example.cine.entity.Movie;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,10 +27,11 @@ public class MovieReceiveDto {
     private String duration;
     @Size(min = 3, max=25)
     private String category;
-    private FilmDirector filmDirector;
+    private FilmDirector filmDirectorId;
 
     public Movie dtoToEntity(){
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
 
         return Movie.builder()
                 .name(this.getName())
@@ -37,7 +39,7 @@ public class MovieReceiveDto {
                 .description(getDescription())
                 .duration(getDescription())
                 .category(getCategory())
-                .filmDirector(getFilmDirector())
+                .filmDirector(getFilmDirectorId())
                 .build();
     }
 }

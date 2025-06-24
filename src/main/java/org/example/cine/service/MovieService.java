@@ -1,5 +1,6 @@
 package org.example.cine.service;
 
+import org.example.cine.dto.FilmDirectorReceiveDto;
 import org.example.cine.dto.FilmDirectorResponseDto;
 import org.example.cine.dto.MovieReceiveDto;
 import org.example.cine.dto.MovieResponseDto;
@@ -53,13 +54,22 @@ public class MovieService implements BaseService<MovieResponseDto, MovieReceiveD
         movieRepository.deleteById(id);
     }
 
-    public boolean addFilmDirector(MovieReceiveDto movieReceiveDto){
-        FilmDirectorResponseDto filmDirectorExist = filmDirectorService.findById(movieReceiveDto.dtoToEntity().getFilmDirector().getId());
-        Movie movieExist = movieRepository.findByFilmDirector(movieReceiveDto.getFilmDirector());
-        if (filmDirectorExist != null &&  movieExist != null){
-            movieReceiveDto.setFilmDirector(movieExist.getFilmDirector());
-        }
-        return true;
-    }
+//    public boolean addFilmDirector(MovieReceiveDto movieReceiveDto) {
+//        FilmDirectorResponseDto filmDirectorExist = filmDirectorService.findById(movieReceiveDto.dtoToEntity().getFilmDirector().getId());
+//        Movie movieExist = movieRepository.findByFilmDirector(movieReceiveDto.getFilmDirectorId());
+//        if (filmDirectorExist != null && movieExist != null) {
+//            movieReceiveDto.setFilmDirector(movieExist.getFilmDirector());
+//        }
+//        return true;
+//    }
+
+        public FilmDirector findFilmDirectorById(UUID id){
+            FilmDirectorResponseDto filmDirectorFound = filmDirectorService.findById(id);
+                if(filmDirectorFound != null){
+                    return filmDirectorRepository
+                }
+        return null;
+     }
+
 
 }
